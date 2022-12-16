@@ -8,8 +8,3 @@
 3. 자료구조 :
 
 '''
-
-
-import sys
-input = sys.stdin.readline
-
