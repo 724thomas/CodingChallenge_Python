@@ -1,8 +1,21 @@
-import numpy
-matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+import sys
+from collections import deque
 
-for i in range(len(matrix)):
-    for j in range(i+1, len(matrix[i])):
-        matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 
-print(matrix)
+n, k = map(int, sys.stdin.readline().split())
+alist = []
+for i in range(n):
+    alist.append(int(sys.stdin.readline()))
+
+count = sum(alist)//k
+
+while True:
+    ans = 0
+    for num in alist:
+        ans += num // count
+    if ans == k:
+        cmax = ans
+        break
+    elif ans < k:
+        count-=1
+print(count)
