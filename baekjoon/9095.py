@@ -1,18 +1,29 @@
 # https://www.acmicpc.net/problem/9095
 import sys
+input = sys.stdin.readline
+# dp = {0: 0, 1: 1, 2: 2, 3: 4}
+# for j in range(int(input())):
+#     n = int(sys.stdin.readline())
+#     if n in dp:
+#         print(dp[n])
+#     else:
+#         for i in range(4, n + 1):
+#             dp[i] = dp[i - 3] + dp[i - 2] + dp[i - 1]
+#         print(dp[n])
 
-case = int(sys.stdin.readline())
-dp = {}
-dp[0] = 0
-dp[1] = 1
-dp[2] = 2
-dp[3] = 4
-for j in range(case):
-    n = int(sys.stdin.readline())
-    for i in range(4, n + 1):
-        if i not in dp:
-            dp[i] = dp[i - 3] + dp[i - 2] + dp[i - 1]
-    print(dp[n])
+def recursive(data):
+    if (data == 1):
+        return 1
+    elif (data == 2):
+        return 2
+    elif (data == 3):
+        return 4
+    else:
+        return recursive(data - 1) + recursive(data - 2) + recursive(data - 3)
+for _ in range((int(input()))):
+    print(recursive(int(input())))
+
+
 
 '''
 1=1
