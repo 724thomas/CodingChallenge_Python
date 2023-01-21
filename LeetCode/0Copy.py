@@ -1,4 +1,4 @@
-# https://www.acmicpc.net/problem/
+#
 
 '''
 1. 아이디어 :
@@ -9,7 +9,4 @@
 
 '''
 
-
-import sys
-input = sys.stdin.readline
 
