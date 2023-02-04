@@ -1,30 +1,30 @@
-#https://leetcode.com/problems/kth-largest-element-in-an-array/description/
+# https://leetcode.com/problems/kth-largest-element-in-an-array/
 
 '''
 1. 아이디어 :
-    1)  heapq를 사용할 수 있다
-    2)  배열을 정렬할 수 있다.
+    1)  정렬하여 출력.
+    2)  힙을 사용하여 출력
 2. 시간복잡도 :
-    1)  O(n) + O(k log n) = O(n log k)
-    2)  O(n) = O(nlogn)
-    * 이론상 최악의 경우, 1)번이 더 빠르지만, 실제로는 2)번이 더 빠르다
+    1)  O(nlogn)
+    2)  O(n) + O(klogn) = O(n)
+        -    힙에 n개의 원소를 넣는 시간 + 힙에서 k번 꺼내는 시간
 3. 자료구조 :
-    1)  heapq
-    2)  배열
+    1)  배열
+    2)   힙
 '''
+
+
 
 #1)
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
-        ans = []
-        for num in nums:
-            ans.append([-num,num])
-        heapq.heapify(ans)
-        for i in range(k-1):
-            heapq.heappop(ans)
-        return ans[0][1]
+        return sorted(nums, reverse=True)[k-1]
 
 #2)
-# class Solution:
-#     def findKthLargest(self, nums: List[int], k: int) -> int:
-#         return sorted(nums, reverse=True)[k-1]
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        negative_nums = [-x for x in nums]
+        heapq.heapify(negative_nums)
+        for i in range(k-1):
+            heapq.heappop(negative_nums)
+        return -heapq.heappop(negative_nums)
