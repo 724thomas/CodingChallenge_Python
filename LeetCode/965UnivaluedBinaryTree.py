@@ -22,7 +22,7 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-1)
+#1)
 class Solution:
     def isUnivalTree(self, root: Optional[TreeNode]) -> bool:
         base = [root.val]
@@ -35,7 +35,7 @@ class Solution:
 
         return dfs(root)
 
-2)
+#2)
 class Solution:
     def isUnivalTree(self, root: Optional[TreeNode]) -> bool:
         base =root.val
