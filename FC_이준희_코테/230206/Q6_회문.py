@@ -9,9 +9,10 @@
 
 '''
 
-
 import sys
+
 input = sys.stdin.readline
+
 
 def s_palindrome(str):
     lp, rp = 0, len(str) - 1
