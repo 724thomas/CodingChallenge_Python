@@ -9,8 +9,8 @@
 
 '''
 
-
 import sys
+
 input = sys.stdin.readline
 
 cities = int(input())
@@ -18,8 +18,7 @@ distances = list(map(int, input().split()))
 prices = list(map(int, input().split()))
 ans = 0
 cmin = prices[0]
-for i in range(cities-1):
+for i in range(cities - 1):
     cmin = min(cmin, prices[i])
     ans += cmin * distances[i]
 print(ans)
-
