@@ -3,26 +3,16 @@
 import sys
 
 start, end = map(int, sys.stdin.readline().split())
-teleport = start * 2
-count=0
-# while True:
-for i in range(10):
-    if start==end:
-        break
-    if start>end:
-        count += start-end
-        break
-
-
-    #case 1
-    c1_distance = end - (start + teleport)
-    #case 2
-    c2_distance = end - (start + 1)
-
-    if c1_distance < c2_distance:
-        start += teleport
+diff = abs(start - end)
+count = 0
+while diff != 0:
+    if diff % 2 == 0:
+        diff = diff // 2
     else:
-        start += 1
+        diff -=1
     count+=1
-    print("start: ", start, "end: ", end, "count: ", count)
+    print(diff, count)
+
 print(count)
+
+
