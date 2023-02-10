@@ -12,6 +12,8 @@
 from collections import deque
 import sys
 
+
+
 input = sys.stdin.readline
 
 base = deque("I" + "OI" * int(input()))
