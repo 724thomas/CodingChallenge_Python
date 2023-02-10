@@ -9,8 +9,8 @@
 
 '''
 
-
 import sys
+
 input = sys.stdin.readline
 nums = sorted([int(input()) for _ in range(int(input()))])
 ans = sum([abs(nums[i] - (i + 1)) for i in range(len(nums))])
