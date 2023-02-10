@@ -9,8 +9,8 @@
 
 '''
 
-
 import sys
+
 input = sys.stdin.readline
 
 Strings = input().strip().split('-')
