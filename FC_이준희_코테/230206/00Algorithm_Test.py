@@ -17,7 +17,10 @@
 
 # 1)
 import sys
+
 input = sys.stdin.readline
+
+
 def backtracking(val):
     if val == n:
         global cnt
@@ -27,6 +30,8 @@ def backtracking(val):
         return
     for i in range(1, 4):
         backtracking(val + i)
+
+
 for _ in range(int(input())):
     n = int(input())
     cnt = 0
@@ -35,8 +40,11 @@ for _ in range(int(input())):
 
 # 2)
 import sys
+
 input = sys.stdin.readline
 memoization = {}
+
+
 def recursive(data):
     if (data == 1):
         return 1
@@ -50,6 +58,8 @@ def recursive(data):
         else:
             memoization[data] = recursive(data - 1) + recursive(data - 2) + recursive(data - 3)
             return memoization[data]
+
+
 for _ in range((int(input()))):
     print(recursive(int(input())))
 
