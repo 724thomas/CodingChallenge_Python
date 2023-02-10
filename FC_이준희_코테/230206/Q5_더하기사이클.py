@@ -10,6 +10,7 @@
 '''
 
 import sys
+
 target = int(sys.stdin.readline())
 num, count = target, 0
 while True:
