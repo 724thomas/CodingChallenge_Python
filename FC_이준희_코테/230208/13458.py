@@ -10,6 +10,7 @@
 '''
 import math
 import sys
+
 input = sys.stdin.readline
 
 rooms = int(input())
@@ -21,4 +22,3 @@ for i in range(len(students)):
     students[i] -= b
     ans = ans + math.ceil(students[i] / c) if students[i] > 0 else ans
 print(ans)
-
