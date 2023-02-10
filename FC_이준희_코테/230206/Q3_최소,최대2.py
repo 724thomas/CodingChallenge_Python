@@ -10,6 +10,7 @@
 '''
 
 import sys
+
 for _ in range(int(input())):
     input()
     nums = sorted(list(map(int, sys.stdin.readline().split())))

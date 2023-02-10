@@ -9,7 +9,13 @@
 
 '''
 
-
 import sys
+
 input = sys.stdin.readline
+
+dp = [1, 2, 3]
+for i in range(47):
+    dp.append(dp[-1] + dp[-2] + dp[-3])
+
+print(dp[-1])
 

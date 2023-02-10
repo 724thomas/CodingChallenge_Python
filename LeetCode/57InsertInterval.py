@@ -7,7 +7,7 @@
     1)  O(nlogn) + O(n) = O(nlogn)
     -   정렬 시간 + 탐색 시간
 3. 자료구조 :
-    1)  List
+    1)  'List
 '''
 
 
