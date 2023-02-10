@@ -10,14 +10,13 @@
 '''
 
 import sys
+
 input = sys.stdin.readline
 n, k = map(int, input().split())
 divisors = []
 count = 0
-for i in range(1, n+1):
+for i in range(1, n + 1):
     if n % i == 0 and count < k:
         divisors.append(i)
-        count+=1
-print(0 if len(divisors)<k else divisors[-1])
-
-
+        count += 1
+print(0 if len(divisors) < k else divisors[-1])
