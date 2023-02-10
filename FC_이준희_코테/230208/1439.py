@@ -9,14 +9,14 @@
 
 '''
 
-
 import sys
+
 input = sys.stdin.readline
 
 String = input().strip()
 ans = String[0]
-for i in range(1, len(String) ):
-    if String[i -1] != String[i]:
+for i in range(1, len(String)):
+    if String[i - 1] != String[i]:
         ans += String[i]
 
 print(min(ans.count('0'), ans.count('1')))
