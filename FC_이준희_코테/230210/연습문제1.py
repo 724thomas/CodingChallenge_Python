@@ -9,13 +9,10 @@
 
 '''
 
-
 import sys
-input = sys.stdin.readline
+n = int(sys.stdin.readline())
+dp = [1, 2]
+for i in range(n - 2):
+    dp.append(dp[-1] + dp[-2])
+print(dp[n - 1] % 10007)
 
-n = int(input())
-dp=[0,1]
-for i in range(n-1):
-    dp.append(dp[-1]+dp[-2])
-
-print(dp[-1])
