@@ -9,8 +9,12 @@
 
 '''
 
-
 import sys
-input = sys.stdin.readline
+def method(n):
+    for i in range(n):
+        if i + (sum([int(x) for x in str(i)])) == n:
+            return i
+    return 0
 
+print(method(int(sys.stdin.readline())))
 
