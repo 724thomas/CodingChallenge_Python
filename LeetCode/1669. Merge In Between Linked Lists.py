@@ -1,16 +1,14 @@
-# https://leetcode.com/problems/merge-in-between-linked-lists/description/
+# https://leetcode.com/problems/merge-in-between-linked-lists/
 
 '''
 1. 아이디어 :
-    1) b까지 돌면서 a-1 인덱스가 나오면 start로 저장해놓는다.
-       b인덱스까지 가게되면 그 다음 원소를 end로 저장해놓는다.
-       start 뒤에 list2를 이어붙이고, list2의 마지막원소까지 탐색한 후, 그 뒤에 end를 붙인다.
+    포인터를 3개 둔다. start는 remove직전의 노드, end는 remove직후의 노드, tail은 list2의 마지막 노드.
+    start와 tail을 연결하고, tail과 end를 연결한다.
 2. 시간복잡도 :
-    1) O(N)
+    O(N)
 3. 자료구조 :
-    1) 링크드리스트
+    링크드리스트
 '''
-
 
 # Definition for singly-linked list.
 # class ListNode:
@@ -19,17 +17,16 @@
 #         self.next = next
 class Solution:
     def mergeInBetween(self, list1: ListNode, a: int, b: int, list2: ListNode) -> ListNode:
-        curr = list1
-        for i in range(b):
-            if i == a - 1:
-                start = curr
-            curr = curr.next
-        end = curr.next
+        start = list1
+        for i in range(a-1):
+            start = start.next
+        end = start
+        for i in range(b-a+2):
+            end = end.next
+        tail = list2
+        while tail.next:
+            tail = tail.next
 
         start.next = list2
-        curr = list2
-        while curr.next:
-            curr = curr.next
-        curr.next = end
-
+        tail.next = end
         return list1
