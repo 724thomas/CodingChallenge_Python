@@ -1,32 +1,15 @@
-# https://leetcode.com/problems/minimum-common-value/description/
+# https://leetcode.com/problems/minimum-common-value/
 
 '''
 1. 아이디어 :
-    1) 정렬된 배열이므로, 두 배열의 첫번째 원소부터 비교하면서 같은 원소가 나오면 리턴
-    2) 길이 작은 배열을 num1으로 두고, 이분탐색을 통해 num1의 원소가 num2에 있는지 확인
+     for문을 돌면서 nums1의 원소를 target으로 잡고, nums2에서 이진탐색으로 찾는다.
 2. 시간복잡도 :
-    1) O(N+M)
-    2) O(NlogM)
+    O(N * logN)
+    num1 길이 * 이분탐색 logN
 3. 자료구조 :
-    1) 배열
-    2) 배열
+    배열
 '''
 
-#1)
-class Solution:
-    def getCommon(self, nums1: List[int], nums2: List[int]) -> int:
-        idx1 = 0
-        idx2 = 0
-        while idx1 < len(nums1) and idx2 < len(nums2):
-            if nums1[idx1] == nums2[idx2]:
-                return nums1[idx1]
-            elif nums1[idx1] < nums2[idx2]:
-                idx1+=1
-            else:
-                idx2+=1
-        return -1
-
-#2)
 class Solution:
     def getCommon(self, nums1: List[int], nums2: List[int]) -> int:
         if len(nums1) > len(nums2):
@@ -43,5 +26,6 @@ class Solution:
                     start = mid + 1
                 else:
                     end = mid - 1
+
 
         return -1
