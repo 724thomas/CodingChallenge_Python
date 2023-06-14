@@ -10,9 +10,10 @@
     해시맵
 '''
 
+
 class Solution:
     def findJudge(self, n: int, trust: List[List[int]]) -> int:
-        if n==1:
+        if n == 1:
             return 1
         trusts = {}
         trusted = {}
@@ -26,8 +27,7 @@ class Solution:
                 trusted[t[1]] = set()
             trusted[t[1]].add(t[0])
 
-        for k,v in trusted.items():
-            if len(v) == n-1 and k not in trusts:
+        for k, v in trusted.items():
+            if len(v) == n - 1 and k not in trusts:
                 return k
         return -1
-
