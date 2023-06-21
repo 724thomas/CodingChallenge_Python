@@ -1,12 +1,12 @@
 # https://leetcode.com/problems/get-maximum-in-generated-array/description/
 
 '''
-1. 아이디어 ::
-
+1. 아이디어 :
+    dp를 사용한다.
 2. 시간복잡도 :
-
+    O(n)
 3. 자료구조 :
-
+    배열
 '''
 
 class Solution:
