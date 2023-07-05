@@ -1,24 +1,23 @@
 # https://www.acmicpc.net/problem/10815
 
+'''
+1. 아이디어 :
+    해시셋을 사용
+2. 시간복잡도 :
+    O(n)
+3. 자료구조 :
+    해시셋
+'''
+
+
 import sys
 
 n, base_num = int(sys.stdin.readline()) , sorted(list(map(int, sys.stdin.readline().split())))
 m, check_num = int(sys.stdin.readline()), list(map(int, sys.stdin.readline().split()))
-ans_list = [0] * m
 
-def binary_search(idx, start, end):
-    if start > end:
-        return
-    check = check_num[idx]
-    mid = (start + end) // 2
-    if base_num[mid] == check:
-        ans_list[idx] = 1
-        return
-    elif base_num[mid] > check:
-        binary_search(idx, start, mid - 1)
-    else:
-        binary_search(idx, mid + 1, end)
-
-for i in range(len(check_num)):
-    binary_search(i, 0, n - 1)
-print(*ans_list)
+ans = [0] * m
+base_num = set(base_num)
+for i in range(m):
+    if check_num[i] in base_num:
+        ans[i] = 1
+print(*ans)
