@@ -1,21 +1,32 @@
 # https://www.acmicpc.net/problem/1654
 
-import sys
-k, n = map(int, sys.stdin.readline().split())
-alist = [int(sys.stdin.readline()) for _ in range(k)]
+'''
+1. 아이디어 :
+    1) 이분탐색
+2. 시간복잡도 :
+    1) O(k * logN)
+3. 자료구조 :
+    1) 배열
+'''
 
-def check(length):
-    count=0
-    for i in alist:
-        count += i//length
-    return count
+k, n = map(int, input().split())
+lines = [int(input()) for _ in range(k)]
+left = 1
+right = max(lines)
 
-start = 1
-end = max(alist)
-while start <= end:
-    mid = (start+end)//2
-    if check(mid) >= n:
-        start = mid+1
+
+def check(length, n):
+    count = 0
+    for l in lines:
+        count += l // length
+    return True if count >= n else False
+
+
+while left <= right:
+    mid = (left + right) // 2
+    if check(mid, n):
+        left = mid + 1
     else:
-        end = mid-1
-print(end)
+        right = mid - 1
+
+print(right)
