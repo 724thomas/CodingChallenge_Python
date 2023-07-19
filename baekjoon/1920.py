@@ -11,58 +11,37 @@
     - n : n개에 원소를 set에 넣는데 걸리는 시간 (1) + m : m개의 원소를 set에서 찾는데 걸리는 시간 (1)
 3. 자료구조 :
     1) 이진탐색
-    2) set()
+    2) 해시셋
 '''
 
 
-import sys
-import bisect
-input()
-nums = list(map(int, sys.stdin.readline().split()))
-input()
-check = list(map(int, sys.stdin.readline().split()))
-print(nums)
-print(check)
-for i in check:
-    print(bisect.insort_left(nums, i))
+# 1)
+def binarySearch(alist, target):
+    start = 0
+    end = len(alist) - 1
+    while start <= end:
+        mid = (start + end) // 2
+        if alist[mid] == target:
+            return 1
+        elif alist[mid] > target:
+            end = mid - 1
+        else:
+            start = mid + 1
+    return 0
 
 
-#
-# #1)
-# import sys
-# numbers = set()
-# noneed1, save_numbers, noneed2, check_numbers = input(), list(map(int, sys.stdin.readline().split())), input(), list(map(int, sys.stdin.readline().split()))
-# for save_number in save_numbers:
-#     numbers.add(save_number)
-# for check_number in check_numbers:
-#     print(1 if check_number in numbers else 0)
-#
-#
-#
-#
-# #2)
-# def binarySearch(alist, target):
-#     start = 0
-#     end = len(alist)-1
-#     while start <= end:
-#         mid = (start + end) // 2
-#         if alist[mid] == target:
-#             return 1
-#         elif alist[mid] > target:
-#             end = mid - 1
-#         else:
-#             start = mid + 1
-#     return 0
-#
-# n = int(sys.stdin.readline())
-# alist = list(map(int, sys.stdin.readline().split()))
-# alist.sort()
-# m = int(sys.stdin.readline())
-# blist = list(map(int, sys.stdin.readline().split()))
-# for i in blist:
-#     print(binarySearch(alist, i))
-#
-#
-#
+n = int(input())
+alist = list(map(int, input().split()))
+alist.sort()
+m = int(input())
+blist = list(map(int, input().split()))
+for i in blist:
+    print(binarySearch(alist, i))
 
 
+
+
+# 2)
+noneed1, save_numbers, noneed2, check_numbers = input(), set(list(map(int, input().split()))), input(), list(map(int, input().split()))
+for check_number in check_numbers:
+    print(1 if check_number in save_numbers else 0)
