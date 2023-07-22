@@ -19,7 +19,6 @@ if sum(req) < total:
     print(max(req))
     exit()
 
-
 def check(money):
     count = 0
     for r in req:
@@ -28,7 +27,6 @@ def check(money):
         else:
             count += r
     return count
-
 
 while left <= right:
     mid = (left + right) // 2
