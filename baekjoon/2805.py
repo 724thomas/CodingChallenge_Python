@@ -7,7 +7,7 @@
 2. 시간복잡도 :
     1) Constructor: O(n), getRandom: O(1)
 3. 자료구조 :
-    1) 이분탐색
+    1) 이분탐색a
 '''
 import sys
 
