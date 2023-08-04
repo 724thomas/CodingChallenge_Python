@@ -9,6 +9,7 @@
     트리
 '''
 
+
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, val=0, left=None, right=None):
@@ -17,13 +18,13 @@
 #         self.right = right
 class Solution:
     def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
-
         def balance(start, end):
-            if start<=end:
-                mid = (start+end) //2
+            if start <= end:
+                mid = (start + end) // 2
                 node = TreeNode(nums[mid])
 
-                node.left = balance(start, mid-1)
-                node.right = balance(mid+1, end)
+                node.left = balance(start, mid - 1)
+                node.right = balance(mid + 1, end)
                 return node
-        return balance(0, len(nums)-1 )
+
+        return balance(0, len(nums) - 1)
