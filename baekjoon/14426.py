@@ -11,27 +11,29 @@
     1) Trie
 '''
 
-
 import sys
+
 input = sys.stdin.readline
+
 
 class TrieNoode:
     def __init__(self):
-        self.children={}
-        self.endOfWord=False
+        self.children = {}
+        self.endOfWord = False
+
 
 class Trie:
     def __init__(self):
-        self.root=TrieNoode()
+        self.root = TrieNoode()
 
-    def insert(self, word):
+    def _insert(self, word):
         cur = self.root
         for char in word:
             if char not in cur.children:
                 cur.children[char] = TrieNoode()
             cur = cur.children[char]
 
-    def search(self, word):
+    def _search(self, word):
         cur = self.root
         for char in word:
             if char not in cur.children:
@@ -39,13 +41,14 @@ class Trie:
             cur = cur.children[char]
         return cur.endOfWord
 
-    def startsWith(self, prefix):
+    def _startsWith(self, prefix):
         cur = self.root
         for char in prefix:
             if char not in cur.children:
                 return False
             cur = cur.children[char]
         return True
+
 
 n, m = map(int, input().split())
 trie = Trie()
