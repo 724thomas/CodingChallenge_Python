@@ -13,22 +13,20 @@ class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
         self.left = self.right = n
         ans = []
-        def backtracking(s):
+        def bt(s):
 
             if not self.left and not self.right:
                 ans.append(s)
 
-            if self.left>0:
+            if self.left:
                 self.left-=1
-                backtracking(s+"(")
+                bt(s+"(")
                 self.left+=1
 
-            if self.right>0 and self.left<self.right:
+            if self.right>self.left:
                 self.right-=1
-                backtracking(s+")")
+                bt(s+")")
                 self.right+=1
 
-        backtracking("")
+        bt("")
         return ans
-
-
