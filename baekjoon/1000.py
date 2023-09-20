@@ -4,6 +4,7 @@
 # num=int(sys.stdin.readline())
 # h, w, n = map(int, sys.stdin.readline().split())
 
+
 def prime_list(start, end):
     # 에라토스테네스의 체 초기화: n개 요소에 True 설정(소수로 간주)
     sieve = [True] * end
