@@ -3,7 +3,6 @@ import sys
 #nums = list(map(int, input().split()))
 case = int(sys.stdin.readline())
 
-
 for i in range(case):
     n = int(sys.stdin.readline())
     fib={}
