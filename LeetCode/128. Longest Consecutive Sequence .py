@@ -13,6 +13,7 @@
     해시셋
 '''
 
+
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
         num_set = set(nums)
