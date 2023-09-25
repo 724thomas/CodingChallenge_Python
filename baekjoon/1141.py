@@ -2,24 +2,26 @@
 
 '''
 1. 아이디어 :
-    길이로 정렬 후, 각 단어가 다른 단어의 첫번째와 같지 않으면 ans += 1
+
 2. 시간복잡도 :
-    O(n^2)
+
 3. 자료구조 :
-    배열
+
 '''
 
 n = int(input())
-words = [input() for _ in range(n)]
-words.sort(key=lambda x: len(x))
-ans = 0
-for i in range(n):
-    check = False
-    for j in range(i+1, n):
-        if words[i] == words[j][0:len(words[i])]:
-            check = True
-            break
-    if not check:
-        ans += 1
+words = []
+for _ in range(n):
+    words.append(input())
 
-print(ans)
+words.sort(key=lambda x: len(x))
+print(words)
+
+for i in range(len(words)):
+    for j in range(i + 1, len(words)):
+        index = -1
+        try:
+            index = words[j].index(words[i])
+        except:
+            j = len(words)
+        print(index)
