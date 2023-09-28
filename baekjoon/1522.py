@@ -15,9 +15,10 @@ import sys
 
 input = sys.stdin.readline
 s = input().strip()
-b,cmin = s.count("a"), len(s)
+counta, cmin = s.count("a"), len(s)
 s=s+s
-for n in range(len(s) - b + 1):
-    cmin = min(cmin, s[n:b + n].count("b"))
+for n in range(len(s) - counta + 1):
+    cmin = min(cmin, s[n:counta + n].count("b"))
+    print(s[n:counta + n])
 print(cmin)
 
