@@ -2,11 +2,11 @@
 
 '''
 1. 아이디어 :
-
+    A의 길이만큼 슬라이딩 윈도우
 2. 시간복잡도 :
-
+    O(n)
 3. 자료구조 :
-
+    문자열
 '''
 
 from collections import Counter
