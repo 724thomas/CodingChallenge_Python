@@ -10,19 +10,22 @@
 '''
 
 k = int(input())
-nodes = list(map(int,input().split()))
+nodes = list(map(int, input().split()))
 ans = {}
+
+
 def dfs(k, arr):
     if not arr:
         return
-    mid = len(arr)//2
+    mid = len(arr) // 2
 
     if k not in ans:
         ans[k] = []
     ans[k].append(str(arr[mid]))
 
-    dfs(k+1, arr[:mid])
-    dfs(k+1, arr[mid+1:])
+    dfs(k + 1, arr[:mid])
+    dfs(k + 1, arr[mid + 1:])
+
 
 dfs(0, nodes)
 for n in ans:
