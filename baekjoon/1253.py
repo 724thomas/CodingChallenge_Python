@@ -13,16 +13,17 @@
 '''
 import sys
 
-n = int(sys.stdin.readline())
-nums = sorted(list(map(int, sys.stdin.readline().split())))
-
+# n = int(sys.stdin.readline())
+# nums = sorted(list(map(int, sys.stdin.readline().split())))
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+n = len(nums)
 count = 0
 
 
 def binary_search(nums, idx):
     arr = nums.copy()
     target = arr.pop(idx)
-    lp, rp = 0, len(arr) - 1
+    lp, rp = 0, idx - 1
     while lp < rp:
         total = arr[lp] + arr[rp]
         if total > target:
@@ -35,7 +36,7 @@ def binary_search(nums, idx):
 
 
 total = 0
-for i in range(n):
+for i in range(1,n):
     total += binary_search(nums, i)
 
 print(total)
