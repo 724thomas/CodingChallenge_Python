@@ -2,38 +2,27 @@
 
 '''
 1. 아이디어 :
-    dfs로 풀 수 있다
+
 2. 시간복잡도 :
-    O(n)
+
 3. 자료구조 :
-    배열
+
 '''
 
-import sys
-sys.setrecursionlimit(10**9)
+
+class TreeNode:
+    def __init__(self, val):
+        self.val = val
+        self.left = None
+        self.right = None
+
 
 nodes = []
 while True:
-    try:
-        nodes.append(int(sys.stdin.readline()))
-    except:
+    num = input()
+    if num:
+        nodes.append(int(num))
+    else:
         break
 
-def dfs(arr):
-    if not arr:
-        return
-
-    front = arr[0]
-    mid = 1
-
-    while mid <= len(arr)-1 and arr[mid]<=front:
-        mid+=1
-
-    dfs(arr[1:mid])
-    dfs(arr[mid:])
-    print(front)
-
-dfs(nodes)
-
-
-
+print(nodes)
