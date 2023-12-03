@@ -15,7 +15,7 @@ from collections import deque
 
 
 def solution(board):
-    cost = [[[float('inf')] * 4 for _ in range(N)] for _ in range(N)]
+    cost = [[[float('inf')] * 4 for _ in range(len(board))] for _ in range(len(board))]
     for i in range(4):
         cost[0][0][i] = 0
 
