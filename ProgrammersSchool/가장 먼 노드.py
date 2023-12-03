@@ -12,6 +12,7 @@
 
 
 from collections import deque
+from collections import defaultdict
 def solution(n, edge):
     hmap = defaultdict(set)
     for start, end in edge:
