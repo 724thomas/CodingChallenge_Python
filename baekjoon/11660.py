@@ -1,4 +1,4 @@
-# https://www.acmicpc.net/problem/11660
+# https://www.acmicpc.net/problem/11660 구간 합 구하기 5
 
 '''
 1. 아이디어 :
