@@ -13,7 +13,7 @@ sys.setrecursionlimit(1000000)
 input = sys.stdin.readline
 
 
-def solution(n, arr):
+def solution():
 
 
     ans = 1
@@ -25,12 +25,13 @@ def solution(n, arr):
 # n, m = list(map(int, input().split()))
 #
 # s = input().rstrip()
-#
+
 # integer_list = [int(num) for num in input().split()]
+# dp = [[0 for _ in range(n)] for _ in range(n)]
 # dp = [[0 for j in range(n)] for i in range(n)]
 # grid = [list(input().rstrip()) for _ in range(n)] # "aaa" "bbb"
 # grid = list(list(map(int, input().split())) for _ in range(n)) # "0 0 0 0", "0 0 0 0"
 
 
 
-print(solution(n, arr))
+print(solution())
