@@ -1,4 +1,4 @@
-# https://www.acmicpc.net/problem/1005
+# https://www.acmicpc.net/problem/1005 ACM Craft
 
 '''
 1. 아이디어 :
