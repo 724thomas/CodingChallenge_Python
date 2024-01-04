@@ -1,4 +1,4 @@
-# https://www.acmicpc.net/problem/2096
+# https://www.acmicpc.net/problem/2096 내려가기
 
 '''
 1. 아이디어 :

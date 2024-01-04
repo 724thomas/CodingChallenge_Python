@@ -1,4 +1,4 @@
-# https://www.acmicpc.net/problem/15961
+# https://www.acmicpc.net/problem/15961 회전 초밥
 
 '''
 1. 아이디어 :

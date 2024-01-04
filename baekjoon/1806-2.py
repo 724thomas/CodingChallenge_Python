@@ -1,4 +1,4 @@
-# https://www.acmicpc.net/problem/1806
+# https://www.acmicpc.net/problem/1806 부분합
 
 '''
 1. 아이디어 :

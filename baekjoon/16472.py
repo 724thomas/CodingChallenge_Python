@@ -1,4 +1,4 @@
-# https://www.acmicpc.net/problem/16472
+# https://www.acmicpc.net/problem/16472 고냥이
 
 '''
 1. 아이디어 :
