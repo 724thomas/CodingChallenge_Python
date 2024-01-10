@@ -1,93 +1,107 @@
-# https://www.acmicpc.net/problem/23309
+# https://www.acmicpc.net/problem/23309 철도 공사
 
 '''
 1. 아이디어 :
-    이중 연결 라스트 (Doubly Linked List)로 풀 수 있다.
+    시간초과...가 날 수 있나...??
 2. 시간복잡도 :
-    모든 공사 : O(n)
+    O(m)
 3. 자료구조 :
-    링크드리스트
+    더블링크드리스트, 해시맵
 '''
+import sys
+sys.setrecursionlimit(1000000)
+input = sys.stdin.readline
 
 
 class ListNode:
-
     def __init__(self, val):
         self.val = val
         self.next = None
         self.prev = None
 
-
 n, m = list(map(int, input().split()))
-nums = list(map(int, input().split()))
+nums = [int(num) for num in input().split()]
+values = {}
 
-curr = dummy = ListNode(nums[0])
-for i in range(1, len(nums)):
-    new_node = ListNode(nums[i])
-    curr.next = new_node
-    new_node.prev = curr
-    curr = curr.next
-curr.next = dummy
-dummy.prev = curr
+for i in range(len(nums)):
+    nums[i] = ListNode(nums[i])
+    values[nums[i].val] = nums[i]
 
-for i in range(m):
-    commands = input().split()
-    for i in range(1, len(commands)):
-        commands[i] = int(commands[i])
-    while curr.val != commands[1]:
-        curr = curr.next
-
-    if len(commands) == 3:  # 설립
-        new_node = ListNode(commands[2])
-
-        if commands[0] == "BN":
-            print(curr.next.val)
-            cprev = curr
-            cnext = curr.next
-
-        elif commands[0] == "BP":
-            print(curr.prev.val)
-            cprev = curr.prev
-            cnext = curr
-
-        cprev.next = new_node
-        new_node.next = cnext
-
-        new_node.prev = cprev
-        cnext.prev = new_node
-
-    elif len(commands) == 2:  # 삭제
-
-        if commands[0] == "CN":
-            print(curr.next.val)
-            cprev = curr
-            cnext = curr.next.next
-
-        elif commands[0] == "CP":
-            print(curr.prev.val)
-            cprev = curr.prev.prev
-            cnext = curr
-
-        cprev.next = cnext
-        cnext.prev = cprev
+for i in range(len(nums)):
+    nums[i-1].next = nums[i]
+    nums[i].prev = nums[i-1]
 
 
 
-'''
-BN 
-$i$ 
-$j$ : 고유 번호 
-$i$를 가진 역의 다음 역의 고유 번호를 출력하고, 그 사이에 고유 번호 
-$j$인 역을 설립한다.
-BP 
-$i$ 
-$j$ : 고유 번호 
-$i$를 가진 역의 이전 역의 고유 번호를 출력하고, 그 사이에 고유 번호 
-$j$인 역을 설립한다.
-CN 
-$i$ : 고유 번호 
-$i$를 가진 역의 다음 역을 폐쇄하고 그 역의 고유 번호를 출력한다.
-CP 
-$i$ : 고유 번호 
-$i$를 가진 역의 이전 역을 폐쇄하고 그 역의 고유 번호를 출력한다.
-'''
+for _ in range(m):
+    inputs = input().split()
+    if inputs[0] == "BN":
+        i, j = int(inputs[1]), int(inputs[2])
+        if j not in values:
+            a_node = values[i]
+            b_node = a_node.next
+
+            print(b_node.val)
+            new_node = ListNode(j)
+
+            a_node.next = new_node
+            new_node.next = b_node
+            b_node.prev = new_node
+            new_node.prev = a_node
+
+            values[j] = new_node
+
+    elif inputs[0] == "BP":
+        i, j = int(inputs[1]), int(inputs[2])
+        if j not in values:
+            b_node = values[i]
+            a_node = b_node.prev
+
+            print(a_node.val)
+            new_node = ListNode(j)
+
+            a_node.next = new_node
+            new_node.next = b_node
+            b_node.prev = new_node
+            new_node.prev = a_node
+
+            values[j] = new_node
+
+    elif inputs[0] == "CN":
+        i = int(inputs[1])
+        a_node = values[i]
+        c_node = a_node.next.next
+
+        print(a_node.next.val)
+
+        a_node.next = c_node
+        c_node.prev = a_node
+
+    elif inputs[0] == "CP":
+        i = int(inputs[1])
+        c_node = values[i]
+        a_node = c_node.prev.prev
+
+        print(c_node.prev.val)
+
+        a_node.next = c_node
+        c_node.prev = a_node
+
+
+
+
+
+
+
+# n = int(input().rstrip())
+#
+#
+# s = input().rstrip()
+
+# dp = [[0 for _ in range(n)] for _ in range(n)]
+# dp = [[0 for j in range(n)] for i in range(n)]
+# grid = [list(input().rstrip()) for _ in range(n)] # "aaa" "bbb"
+# grid = list(list(map(int, input().split())) for _ in range(n)) # "0 0 0 0", "0 0 0 0"
+
+
+
