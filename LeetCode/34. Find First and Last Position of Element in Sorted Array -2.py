@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/
+# https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description//
 
 '''
 1. 아이디어 :
