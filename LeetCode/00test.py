@@ -264,6 +264,10 @@ def are_trees_equal(root1, root2):
 Solution().solution(root)
 user_answer = root
 print(are_trees_equal(answer, user_answer))
+
+
+
+
 outputString:
 errorString:   File "<string>", line 3
 
