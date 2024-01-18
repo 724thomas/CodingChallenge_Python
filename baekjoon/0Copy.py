@@ -12,14 +12,6 @@ import sys
 sys.setrecursionlimit(1000000)
 input = sys.stdin.readline
 
-
-def solution():
-
-
-    ans = 1
-    return ans
-
-
 # n = int(input().rstrip())
 #
 # n, m = list(map(int, input().split()))
@@ -34,4 +26,16 @@ def solution():
 
 
 
+def solution():
+
+
+    ans = 1
+    return ans
+
+
+
+
+
 print(solution())
+
+
