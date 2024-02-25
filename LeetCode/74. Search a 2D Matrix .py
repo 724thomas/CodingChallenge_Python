@@ -9,31 +9,32 @@
 
 '''
 
+
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         left = 0
-        right = len(matrix)-1
+        right = len(matrix) - 1
 
-        while left<=right:
-            mid = (left+right)//2
+        while left <= right:
+            mid = (left + right) // 2
             if matrix[mid][0] == target:
                 return True
             elif matrix[mid][0] > target:
-                right = mid-1
+                right = mid - 1
             elif matrix[mid][0] < target:
-                left = mid+1
+                left = mid + 1
 
         matrix = matrix[right]
 
         left = 0
-        right = len(matrix)-1
-        while left<=right:
-            mid = (left+right)//2
+        right = len(matrix) - 1
+        while left <= right:
+            mid = (left + right) // 2
             if matrix[mid] == target:
                 return True
             elif matrix[mid] > target:
-                right = mid-1
+                right = mid - 1
             elif matrix[mid] < target:
-                left = mid+1
+                left = mid + 1
 
         return False
