@@ -22,6 +22,7 @@ class Solution:
         dict = defaultdict(int)
         dict[0] = 1
 
+
         def dfs(root, total):
             count = 0
             if root:
