@@ -1,34 +1,42 @@
-# https://www.acmicpc.net/problem/1725
+# https://www.acmicpc.net/problem/
 
 '''
 1. 아이디어 :
 
 2. 시간복잡도 :
-
+    O(  )
 3. 자료구조 :
 
 '''
 
-graph = []
-for i in range(int(input())):
-    graph.append(int(input()))
 
-max_area = 0
-graphs = [graph]
+import sys
+sys.setrecursionlimit(1000000)
+input = sys.stdin.readline
 
-while len(graphs) >= 1:
-    graph = graphs.pop()
-    cmin = min(graph)
-    max_area = max(max_area, len(graph) * cmin)
+def solution(heights):
+    ans = 0
+    stack = []
 
-    temp = []
-    for n in graph:
-        if n == cmin:
-            if temp:
-                graphs.append(temp)
-                temp = []
-        else:
-            temp.append(n)
-    if temp:
-        graphs.append(temp)
-print(max_area)
+    for curr_idx, curr_height in enumerate(heights):
+        start = curr_idx
+
+        while stack and stack[-1][1] > curr_height:
+            prev_idx, prev_height = stack.pop()
+            ans = max(ans, prev_height * (curr_idx - prev_idx))
+            start = prev_idx
+
+        stack.append((start, curr_height))
+
+    for curr_idx, curr_height in stack:
+        ans = max(ans, (len(heights) - curr_idx) * curr_height )
+
+
+    return ans
+
+heights = []
+for _ in range(int(input())):
+    heights.append(int(input()))
+print(solution(heights))
+
+
