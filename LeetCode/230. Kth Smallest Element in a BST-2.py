@@ -1,0 +1,32 @@
+#
+
+'''
+1. 아이디어 :
+    pre-order traversal을 사용하면 된다.
+2. 시간복잡도 :
+    O( n )
+3. 자료구조 :
+    배열
+'''
+
+
+# Definition for a binary tree node.111111
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        ans = []
+
+        def dfs(node):
+            if not node:
+                return
+
+            dfs(node.left)
+            ans.append(node.val)
+            dfs(node.right)
+
+        dfs(root)
+        return ans[k-1]
