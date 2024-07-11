@@ -29,8 +29,11 @@ input = sys.stdin.readline
 
 def solution():
 
-    ans = 1
-    return ans
+
+
+    return
+
+
 
 print(solution())
 
