@@ -16,7 +16,7 @@ import sys
 input = lambda: sys.stdin.readline().rstrip()
 
 def solution():
-
+    # print(*arr, sep="\n")
     return 1
 
 # n = int(input().rstrip())
