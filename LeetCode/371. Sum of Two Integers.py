@@ -1,0 +1,15 @@
+#
+
+'''
+1. 아이디어 :
+
+2. 시간복잡도 :
+    O(
+3. 자료구조 :
+
+'''
+
+
+class Solution:
+    def getSum(self, a: int, b: int) -> int:
+        return sum([a,b])
