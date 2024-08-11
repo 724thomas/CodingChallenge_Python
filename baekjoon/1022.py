@@ -1,49 +1,47 @@
-# https://www.acmicpc.net/problem/
+# https://www.acmicpc.net/problem/1022
 
 '''
 1. 아이디어 :
 
 2. 시간복잡도 :
-    O(  )
+    O(
 3. 자료구조 :
 
 '''
-def calculate_value(x, y):
-    layer = max(abs(x), abs(y))
-    if y == -layer:
-        return (2 * layer - 1) ** 2 + (layer - x)
-    elif x == layer:
-        return (2 * layer - 1) ** 2 + (2 * layer) + (layer - y)
-    elif y == layer:
-        return (2 * layer - 1) ** 2 + 2 * (2 * layer) + (x + layer)
-    else:
-        return (2 * layer - 1) ** 2 + 3 * (2 * layer) + (y + layer)
 
-def solution(r1, c1, r2, c2):
-    rows = r2 - r1 + 1
-    cols = c2 - c1 + 1
-    grid = [[0] * cols for _ in range(rows)]
-    max_val_length = 0
-
-    for i in range(rows):
-        for j in range(cols):
-            x, y = r1 + i, c1 + j
-            grid[i][j] = calculate_value(x, y)
-            max_val_length = max(max_val_length, len(str(grid[i][j])))
-
-    result = []
-    for row in grid:
-        formatted_row = ' '.join(f"{val:>{max_val_length}}" for val in row)
-        result.append(formatted_row)
-
-    return '\n'.join(result)
-
-# 입력 처리
 import sys
-sys.setrecursionlimit(1000000)
-input = sys.stdin.readline
-r1, c1, r2, c2 = list(map(int, input().split()))
-print(r1, c1, r2, c2)
+input = lambda: sys.stdin.readline().rstrip()
 
-# 결과 출력
-print(solution(r1, c1, r2, c2))
+
+
+def solution(x1, y1, x2, y2):
+
+    def get_value(x, y):
+        n = max(abs(x), abs(y))
+        side_len = 2 * n + 1
+        cmax = side_len ** 2
+        if x == n:
+            return cmax - (n - y)
+        elif y == -n:
+            return cmax - side_len + 1 - (n - x)
+        elif x == -n:
+            return cmax - 2 * side_len + 2 - (n + y)
+        elif y == n:
+            return cmax - 3 * side_len + 3 - (n + x)
+
+    grid = []
+    max_val_len = 0
+
+    for i in range(x1, x2 + 1):
+        grid.append([])
+        for j in range(y1, y2 + 1):
+            val = get_value(i, j)
+            grid[-1].append(val)
+            max_val_len = max(max_val_len, len(str(val)))
+
+    for row in grid:
+        print(" ".join(str(x).rjust(max_val_len) for x in row))
+
+if __name__ == '__main__':
+    x1, y1, x2, y2 = map(int, input().split())
+    solution(x1, y1, x2, y2)
