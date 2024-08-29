@@ -15,16 +15,29 @@ import sys
 # input = sys.stdin.readline
 input = lambda: sys.stdin.readline().rstrip()
 
-def solution():
-    # print(*arr, sep="\n")
-    return
+def solution(n,k):
+
+    min_basket = 1
+    total = 0
+    for i in range(k):
+        total += min_basket
+        min_basket += 1
+    if total > n:
+        return -1
+
+    left = n - total
+    while left > k:
+        left -= k
+
+    return k-1 if not left else k
 
 
 
 if __name__ == '__main__':
-    # n, m = map(int, input().split())
+    n, m = map(int, input().split())
     # arr = tuple(map(int, input().split()))
-    print(solution())
+    print(solution(n,m))
+
 
 # n = int(input().rstrip())
 #
