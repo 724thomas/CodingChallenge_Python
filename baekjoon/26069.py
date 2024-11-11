@@ -11,8 +11,6 @@
 
 
 import sys
-#sys.setrecursionlimit(1000000)
-# input = sys.stdin.readline
 input = lambda: sys.stdin.readline().rstrip()
 
 def solution(n):
@@ -24,7 +22,6 @@ def solution(n):
             dancing.add(s1)
             dancing.add(s2)
     return len(dancing)
-
 
 if __name__ == '__main__':
     n = int(input())
