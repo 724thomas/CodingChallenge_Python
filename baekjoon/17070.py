@@ -11,36 +11,27 @@
 
 
 import sys
-#sys.setrecursionlimit(1000000)
-# input = sys.stdin.readline
 input = lambda: sys.stdin.readline().rstrip()
 
 def solution(n, grid):
-    prefix_sum_prev = [[0,0,0] for _ in range(n)]
+    prev = [[0,0,0] for _ in range(n)]
     for col in range(n):
         if grid[0][col] == 0:
-            prefix_sum_prev[col][0] = 1
+            prev[col][0] = 1
         else:
             break
-    prefix_sum_prev[0][0] = 0
+    prev[0][0] = 0
 
     for row in range(1, n):
-        prefix_sum_next = [[0,0,0] for _ in range(n)]
+        next = [[0,0,0] for _ in range(n)]
         for col in range(1,n):
             if grid[row][col] == 1: continue
-            # 세로 (위)
-            prefix_sum_next[col][1] += prefix_sum_prev[col][1]
-            prefix_sum_next[col][1] += prefix_sum_prev[col][2]
-            # 가로 (왼)
-            prefix_sum_next[col][0] += prefix_sum_next[col-1][0]
-            prefix_sum_next[col][0] += prefix_sum_next[col-1][2]
-            # 대각 (왼위)
-            if grid[row-1][col] == 0 and grid[row][col-1] == 0:
-                prefix_sum_next[col][2] += prefix_sum_prev[col-1][0]
-                prefix_sum_next[col][2] += prefix_sum_prev[col-1][1]
-                prefix_sum_next[col][2] += prefix_sum_prev[col-1][2]
-        prefix_sum_prev = prefix_sum_next
-    return sum(prefix_sum_prev[n-1])
+            next[col][1] += prev[col][1] + prev[col][2]
+            next[col][0] += next[col-1][0] + next[col-1][2]
+            if grid[row-1][col] + grid[row][col-1] != 0: continue
+            next[col][2] += prev[col-1][0] + prev[col-1][1] + prev[col-1][2]
+        prev = next
+    return sum(prev[n-1])
 
 if __name__ == '__main__':
     n = int(input().rstrip())
